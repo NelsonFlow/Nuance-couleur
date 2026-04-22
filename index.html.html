@@ -498,10 +498,18 @@ html,body { height:100%; overflow:hidden; font-family:'Outfit',sans-serif; backg
 
 <script>
 // ===== SUPABASE =====
-const { createClient } = supabase;
 const sb = createClient(
   'https://anksswoapfjziyeyohmr.supabase.co',
-  'sb_publishable_L0lE2Bmlc6o578oOWmZ9gg_Di9Jv8Fu'
+  'sb_publishable_L0lE2Bmlc6o578oOWmZ9gg_Di9Jv8Fu',
+  {
+    auth: {
+      persistSession: true,
+      storageKey: 'nuancecouleur-auth',
+      storage: window.localStorage,
+      autoRefreshToken: true,
+      detectSessionInUrl: false
+    }
+  }
 );
 
 // ===== STATE =====
